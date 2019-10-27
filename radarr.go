@@ -15,7 +15,7 @@ type Client struct {
 }
 
 // New creates a client to make api calls to Radarr
-func New(host, apiKey string) (Client, error) {
+func New(host, apiKey string, timeout int) (Client, error) {
 	var client Client
 
 	if host == "" {
@@ -39,7 +39,7 @@ func New(host, apiKey string) (Client, error) {
 
 	client.URL = hostURL
 	client.APIKey = apiKey
-	client.Timeout = 5
+	client.Timeout = timeout
 
 	return client, nil
 }
